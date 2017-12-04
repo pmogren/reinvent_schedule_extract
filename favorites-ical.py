@@ -1,4 +1,4 @@
-import requests
+qimport requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import pytz
@@ -121,7 +121,7 @@ for session in session_data:
     event.add('location', session['schedule']['room'])
     event.add('dtstart', session['schedule']['startDatetime'])
     event.add('dtend', session['schedule']['endDatetime'])
-    # event.add('url', session['link'])
+    event.add('url', base_url + "/sessionDetail.ww?SESSION_ID=" + session['normalized_abbreviation'].replace(" - ", ""))
     event.add('dtstamp', session['schedule']['startDatetime'])
     cal.add_component(event)
 
